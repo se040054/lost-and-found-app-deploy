@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, HashRouter } from "react-router-dom";
 import {
   HomePage,
   LoginPage,
@@ -29,7 +29,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <ThemeContextProvider>
           <AuthContextProvider>
             <GoogleOAuthProvider
@@ -78,7 +78,7 @@ function App() {
             </GoogleOAuthProvider>
           </AuthContextProvider>
         </ThemeContextProvider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
