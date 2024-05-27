@@ -23,7 +23,7 @@ export const AuthContainer = styled.div`display: flex;
   height: 100%; 
 `
 export const AuthBannerContainer = styled.div`
-  position:absolute;
+  position:fixed;
   right:0;  
   bottom:0;
   top:0;

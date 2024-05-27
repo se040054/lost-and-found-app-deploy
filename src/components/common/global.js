@@ -8,6 +8,11 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html{
+    overflow-y: scroll;
+     /*永遠保留給卷軸的寬度  */
+  }
+  
   html ,body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};

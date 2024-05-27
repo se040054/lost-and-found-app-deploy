@@ -9,6 +9,7 @@ export const FormContainerStyled = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  margin-top: 80px;
 `;
 
 export const StyledAuthButton = styled(Button)`
