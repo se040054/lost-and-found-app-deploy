@@ -213,7 +213,7 @@ const ClaimWrapper = ({ claim, isResolved, refetch }) => {
     <Card className="mb-3">
       <Row className="d-flex align-items-center m-0 ps-3 py-2">
         <Card.Title className="p-0 m-0">
-          <a href={`/users/${claim.User?.id}`}>
+          <Link to={`/users/${claim.User?.id}`}>
             <Image
               src={claim.User?.avatar || defaultAvatar}
               alt="avatar"
@@ -226,7 +226,7 @@ const ClaimWrapper = ({ claim, isResolved, refetch }) => {
             />
 
             <small>{claim.User?.name}</small>
-          </a>
+          </Link>
         </Card.Title>
       </Row>
       <hr className="w-100 m-0 p-0"></hr>

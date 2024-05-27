@@ -206,9 +206,7 @@ export default function RegisterPage() {
           </Link>
           <AuthLink>
             已經有帳號了？　{"  "}
-            <a href="/login" style={{ textDecoration: "underline" }}>
-              登入
-            </a>
+            <Link to="/login">登入</Link>
           </AuthLink>
         </AuthContainer>
       </AuthMainContainer>

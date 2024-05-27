@@ -13,7 +13,7 @@ import { InfoRow } from "../../components/common/profileStyled";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { deleteItem, getItem } from "../../api/items";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Assists/Header";
 import styled from "styled-components";
 import {
@@ -238,7 +238,7 @@ const InformationContainer = ({
           </InfoRow>
           <InfoRow>
             {item.Merchant ? (
-              <a href={`/merchants/${item.Merchant.id}`}>
+              <Link to={`/merchants/${item.Merchant.id}`}>
                 <Image
                   src={item.Merchant.logo || defaultMerchantLogo}
                   alt="logo"
@@ -250,9 +250,9 @@ const InformationContainer = ({
                   }}
                 />
                 <small>{item.Merchant.name} </small>
-              </a>
+              </Link>
             ) : (
-              <a href={`/users/${item.User.id}`}>
+              <Link to={`/users/${item.User.id}`}>
                 <Image
                   src={item.User.avatar || defaultAvatar}
                   alt="avatar"
@@ -265,7 +265,7 @@ const InformationContainer = ({
                 />
 
                 <small>{item.User.name}</small>
-              </a>
+              </Link>
             )}{" "}
           </InfoRow>
           <Row>
@@ -321,9 +321,9 @@ const InformationContainer = ({
       {/*編輯按鈕 */}
       {item.userId === currentMemberId && (
         <Container className="d-flex mt-5 justify-content-between">
-          <Button className="btn btn-success" href={`/items/${item.id}/edit`}>
-            編輯物品資料
-          </Button>
+          <Link to={`/items/${item.id}/edit`}>
+            <Button className="btn btn-success">編輯物品資料</Button>
+          </Link>
           <Button className="btn btn-danger" onClick={(e) => handleDelete?.()}>
             刪除物品
           </Button>
@@ -543,7 +543,7 @@ const CommentWrapper = ({ comment, refetch }) => {
   return (
     <Accordion.Body>
       <Container className="d-flex align-center p-0 m-0">
-        <a href={`/users/${comment.userId}`}>
+        <Link to={`/users/${comment.userId}`}>
           <Image
             src={comment.User.avatar || defaultAvatar}
             alt="avatar"
@@ -555,10 +555,10 @@ const CommentWrapper = ({ comment, refetch }) => {
               border: "1px solid gray",
             }}
           />{" "}
-        </a>
-        <a href={`/users/${comment.userId}`}>
+        </Link>
+        <Link to={`/users/${comment.userId}`}>
           <h5 className="font-weight-bold h5-0 m-0">{comment.User.name}：</h5>
-        </a>
+        </Link>
       </Container>
       <Container className="d-flex align-items-center justify-content-between p-0 my-2">
         {comment.text}

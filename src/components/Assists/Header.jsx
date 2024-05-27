@@ -32,29 +32,32 @@ export default function Header() {
         {/* fluid 消除container自帶的300margin */}
         {/* 左側 Nav A */}
         <Nav>
-          <BrandStyled href="/home">
-            <Logo />
-          </BrandStyled>
-          <BrandStyled href="/home">Lost & Found</BrandStyled>
+          <Link to="/home">
+            <UserStyled>
+              <Logo />
+              Lost & Found
+            </UserStyled>
+          </Link>
           {currentMember && (
             <>
-              <UserStyled href={`/users/${currentMember.id}`}>
-                <Image
-                  alt="avatar"
-                  id="avatar-preview"
-                  className="ms-3  rounded-circle"
-                  src={currentMember.avatar || defaultAvatar}
-                  roundedCircle
-                  style={{
-                    width: "45px",
-                    height: "45px",
-                    objectFit: "center",
-                  }}
-                />
-              </UserStyled>
-              <UserStyled href={`/users/${currentMember.id}`}>
-                {currentMember.name}
-              </UserStyled>
+              <Link to={`/users/${currentMember.id}`} >
+                <UserStyled>
+                  <Image
+                    alt="avatar"
+                    id="avatar-preview"
+                    className="ms-3  rounded-circle"
+                    src={currentMember.avatar || defaultAvatar}
+                    roundedCircle
+                    style={{
+                      width: "45px",
+                      height: "45px",
+                      objectFit: "center",
+                      marginRight:'10px'
+                    }}
+                  />
+                  {currentMember.name}
+                </UserStyled>
+              </Link>
             </>
           )}
         </Nav>
@@ -98,18 +101,17 @@ const NavBarStyled = styled(Navbar)`
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 `;
 
-const BrandStyled = styled(Navbar.Brand)`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  vertical-align: middle;
-  font-size: 1.4rem;
-`;
-
 const UserStyled = styled(Navbar.Brand)`
+  color: ${(props) => props.theme.text};
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  font-weight: bold;
 `;
 
 const Logo = styled.img`

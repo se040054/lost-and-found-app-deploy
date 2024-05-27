@@ -117,9 +117,7 @@ export default function LoginPage() {
           </Link>
           <AuthLink>
             還沒有帳號？　{"  "}
-            <a href="/register" style={{ textDecoration: "underline" }}>
-              註冊
-            </a>
+            <Link to="/register"> 註冊</Link>
           </AuthLink>
         </AuthContainer>
       </AuthMainContainer>

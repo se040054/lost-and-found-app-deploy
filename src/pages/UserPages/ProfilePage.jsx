@@ -132,12 +132,9 @@ const InformationContainer = ({ profile, currentMemberId }) => {
         </InfoRow>
       </Container>
       {profile?.id === currentMemberId && (
-        <Button
-          className="btn btn-success w-75"
-          href={`/users/${currentMemberId}/edit`}
-        >
-          編輯資料
-        </Button>
+        <Link to={`/users/${currentMemberId}/edit`}>
+          <Button className="btn btn-success">編輯資料</Button>
+        </Link>
       )}
     </InformationContainerStyled>
   );

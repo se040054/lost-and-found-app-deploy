@@ -26,6 +26,8 @@ export const GlobalStyles = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
+    margin:0;
+    padding:0;
   }
   a:hover {
   
