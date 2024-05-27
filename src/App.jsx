@@ -1,5 +1,11 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Navigate, HashRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  HashRouter,
+} from "react-router-dom";
 import {
   HomePage,
   LoginPage,
@@ -24,12 +30,12 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { FavoriteContextProvider } from "./context/FavoriteContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-
+const basename = process.env.PUBLIC_URL;
 
 function App() {
   return (
     <div className="App">
-      <HashRouter>
+      <BrowserRouter basename={basename}>
         <ThemeContextProvider>
           <AuthContextProvider>
             <GoogleOAuthProvider
@@ -78,7 +84,7 @@ function App() {
             </GoogleOAuthProvider>
           </AuthContextProvider>
         </ThemeContextProvider>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
