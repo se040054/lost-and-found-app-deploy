@@ -24,7 +24,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { FavoriteContextProvider } from "./context/FavoriteContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-const basename = process.env.PUBLIC_URL;
+const basename = process.env.REACT_APP_PUBLIC_URL;
 
 function App() {
   return (
