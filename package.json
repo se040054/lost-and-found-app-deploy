@@ -1,7 +1,6 @@
 {
   "name": "lost-and-found-app",
   "version": "0.1.0",
-  "homepage": "https://se040054.github.io/lost-and-found-app-deploy",
   "private": true,
   "dependencies": {
     "@fastify/jwt": "^8.0.0",
