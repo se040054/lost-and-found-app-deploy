@@ -73,6 +73,7 @@ export default function HomePage() {
   const [page, setPage] = useState(1);
   const [category, setCategory] = useState(null); // 分類的格式為string，id+name(1金錢財物)，目前eventKey物件會產生問題
   const [search, setSearch] = useState(null);
+  const [inputValue, setInputValue] = useState(""); //注意這是輸入欄位變動時更新的數值
   const [items, setItems] = useState([]);
   const [totalPage, setTotalPage] = useState(null);
   const [apiRes, setApiRes] = useState("loading");
@@ -117,6 +118,7 @@ export default function HomePage() {
 
   const cleanSearch = () => {
     setSearch(null);
+    setInputValue("");
   };
   const cleanCategory = () => {
     setCategory(null);
@@ -143,7 +145,12 @@ export default function HomePage() {
                     category={category}
                     handleSelect={setCategory}
                   />
-                  <SearchBar search={search} handleSubmit={setSearch} />
+                  <SearchBar
+                    inputValue={inputValue}
+                    setInputValue={setInputValue}
+                    search={search}
+                    handleSubmit={setSearch}
+                  />
                 </InputGroup>
               </FilterContainer>
             </Col>
@@ -255,15 +262,15 @@ const CategoryFilter = ({ category, handleSelect }) => {
   );
 };
 
-const SearchBar = ({ handleSubmit }) => {
-  const [inputValue, setInputValue] = useState(""); //注意這是輸入欄位變動時更新的數值
+const SearchBar = ({ handleSubmit, inputValue, setInputValue }) => {
+  // 要注意 inputValue 並非網頁的search，當使用者輸入字串，不會馬上更新search結果，而是等到送出才更新
   return (
     <>
       <Form.Control
         aria-label=""
         aria-describedby="basic-addon1"
         value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={(e) => setInputValue?.(e.target.value)}
       />
       <button // 這邊如果套用react-bootstrap 沒有黑暗模式
         className="btn  btn-outline-success pb-2 px-4"
