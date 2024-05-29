@@ -202,7 +202,7 @@ export default function EditItemPage() {
       <FormContainerStyled>
         {apiRes === "success" && (
           <FormContainer>
-            <AuthTitle>刊登物品</AuthTitle>
+            <AuthTitle>編輯物品</AuthTitle>
             <SelectInput
               items={categories}
               text="選擇物品分類"
