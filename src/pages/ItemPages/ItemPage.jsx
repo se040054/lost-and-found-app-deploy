@@ -171,7 +171,7 @@ export default function ItemPage() {
             />
           </>
         )}
-        {apiRes === "false" && <h1>找不到用戶</h1>}
+        {apiRes === "false" && <h1>找不到物品</h1>}
         {apiRes === "loading " && (
           <Spinner animation="border" variant="success" />
         )}
