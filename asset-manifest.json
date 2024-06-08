@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/lost-and-found-app-deploy/static/css/main.6526f63a.css",
-    "main.js": "/lost-and-found-app-deploy/static/js/main.fd64966b.js",
+    "main.js": "/lost-and-found-app-deploy/static/js/main.e17f8051.js",
     "static/js/453.14c6f2de.chunk.js": "/lost-and-found-app-deploy/static/js/453.14c6f2de.chunk.js",
     "static/media/default-merchant-logo.png": "/lost-and-found-app-deploy/static/media/default-merchant-logo.6ea79d9fcd994ff2e5b8.png",
     "static/media/default-avatar.png": "/lost-and-found-app-deploy/static/media/default-avatar.9c4b8089e65e0da27b7a.png",
@@ -10,11 +10,11 @@
     "index.html": "/lost-and-found-app-deploy/index.html",
     "static/media/moon.svg": "/lost-and-found-app-deploy/static/media/moon.40003c239c9b967b30ef38482704215b.svg",
     "main.6526f63a.css.map": "/lost-and-found-app-deploy/static/css/main.6526f63a.css.map",
-    "main.fd64966b.js.map": "/lost-and-found-app-deploy/static/js/main.fd64966b.js.map",
+    "main.e17f8051.js.map": "/lost-and-found-app-deploy/static/js/main.e17f8051.js.map",
     "453.14c6f2de.chunk.js.map": "/lost-and-found-app-deploy/static/js/453.14c6f2de.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6526f63a.css",
-    "static/js/main.fd64966b.js"
+    "static/js/main.e17f8051.js"
   ]
 }
