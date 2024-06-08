@@ -20,7 +20,7 @@ export default function ToggleThemeButton() {
     display: flex;
     align-items: center;
     min-width: 120px;
-    max-width:120px;
+    max-width: 120px;
     height: 50px;
     padding: 10px 20px;
     border-radius: 25px;
@@ -39,6 +39,18 @@ export default function ToggleThemeButton() {
       &:nth-child(2) {
         transform: ${({ lightTheme }) =>
           lightTheme ? "translateY(-100px)" : "translate(10px,0)"};
+      }
+    }
+    @media screen and (max-width: 1400px) {
+      min-width: 60px;
+      max-width: 90px;
+      height: 40px;
+      padding: 6px 12px;
+      border-radius: 25px;
+      svg {
+        height: auto;
+        width: 45px;
+        transition: all 0.3s linear;
       }
     }
   `;

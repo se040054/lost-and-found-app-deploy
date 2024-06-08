@@ -5,13 +5,14 @@ export const lightTheme = {
   toggleBorder: '#bcc9d6',
   gradient: 'linear-gradient(#ffde00, #fff6ba)',
   background: '#FFF',
-  headerBackground: '#60BF81',
+  headerBackground: '#A6D9A9',
   containerBackground: '#FFF',
   inputContainerBackground: '#FFF',
   inputBackground: '#FFF',
   inputContainerBorder: 'gray',
   heartBackground: '#fcfcfc',
-  heartBorder: '#1a1a1a'
+  heartBorder: '#1a1a1a',
+  border:'#292929'
 }
 
 export const darkTheme = {
@@ -26,5 +27,6 @@ export const darkTheme = {
   inputContainerBackground: '#D9D9D9',
   inputBackground: '#f1ffe9',
   heartBackground: '#1a1a1a',
-  heartBorder: '#fcfcfc'
+  heartBorder: '#fcfcfc',
+  border: '#e6e6e6'
 }
