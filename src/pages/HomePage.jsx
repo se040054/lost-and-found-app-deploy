@@ -64,9 +64,21 @@ const BadgesContainerStyled = styled.div`
 
 const CreateContainerStyled = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: end;
   font-size: 1rem;
   align-items: center;
+  @media screen and (max-width: 1199px) {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    justify-content: space-evenly;
+  }
+  @media screen and (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    justify-content: space-evenly;
+  }
 `;
 
 export default function HomePage() {
@@ -138,7 +150,11 @@ export default function HomePage() {
         {/* 搜尋 */}
         <Container fluid>
           <Row>
-            <Col className="col-md-5 offset-md-3">
+            <Col
+              md={12}
+              xl={{ span: 7, offset: 1 }}
+              xxl={{ span: 5, offset: 3 }}
+            >
               <FilterContainer>
                 <InputGroup>
                   <CategoryFilter
@@ -153,23 +169,23 @@ export default function HomePage() {
                   />
                 </InputGroup>
               </FilterContainer>
+              {(search || category) && (
+                <>
+                  <BadgesContainer
+                    search={search}
+                    category={category}
+                    cleanSearch={cleanSearch}
+                    cleanCategory={cleanCategory}
+                  ></BadgesContainer>
+                </>
+              )}
             </Col>
-            <Col className="col-md-3 offset-md-1">
+            <Col md={12} xl={4} xxl={4}>
               <CreateContainer isLogin={isLogin} navigate={navigate} />
             </Col>
           </Row>
         </Container>
         {/* 顯示篩選 */}
-        {(search || category) && (
-          <>
-            <BadgesContainer
-              search={search}
-              category={category}
-              cleanSearch={cleanSearch}
-              cleanCategory={cleanCategory}
-            ></BadgesContainer>
-          </>
-        )}
 
         {/* 物品 */}
         <ItemsContainer items={items} apiRes={apiRes}></ItemsContainer>
@@ -319,11 +335,19 @@ const CreateContainer = ({ isLogin, navigate }) => {
   };
   return (
     <CreateContainerStyled>
-      <Button variant="success" onClick={() => handleCreateItemClick?.()}>
+      <Button
+        className="me-1 mb-2"
+        variant="success"
+        onClick={() => handleCreateItemClick?.()}
+      >
         <FiPlusCircle className="me-1 mb-1" size="1rem" />
         刊登物品
       </Button>
-      <Button variant="success" onClick={() => handleCreateMerchantClick?.()}>
+      <Button
+        className="me-1 mb-2"
+        variant="success"
+        onClick={() => handleCreateMerchantClick?.()}
+      >
         <FiPlusCircle className="me-1 mb-1" size="1rem" />
         申請商家
       </Button>
@@ -340,7 +364,7 @@ const ItemsContainer = ({ items, apiRes }) => {
         <Spinner animation="border" variant="success" />
       )}
       {apiRes === "success" && (
-        <Row xs={1} sm={2} md={3} lg={4} xl={4} className="g-3 w-100">
+        <Row xs={1} sm={1} md={1} lg={2} xl={3} xxl={4} className="g-3 w-100">
           {/* 這些屬性是一rows 在RWD響應下有幾個元素 */}
           {items.map((item) => {
             return (
@@ -377,7 +401,13 @@ const ItemsWrapper = ({ item }) => {
       <Card.Header variant="top">
         {/* variant 會讓radius自動適應 */}
         {item.Merchant ? (
-          <Link to={`/merchants/${item.Merchant.id}`}>
+          <Link
+            to={`/merchants/${item.Merchant.id}`}
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <Image
               src={item.Merchant.logo || defaultMerchantLogo}
               alt="logo"
@@ -389,10 +419,27 @@ const ItemsWrapper = ({ item }) => {
                 zIndex: "2",
               }}
             />
-            <small>{item.Merchant.name} </small>
+            <p
+              style={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                maxWidth: "75%",
+                margin: "5px 0",
+                padding: "0",
+              }}
+            >
+              {item.Merchant.name}{" "}
+            </p>
           </Link>
         ) : (
-          <Link to={`/users/${item.User.id}`}>
+          <Link
+            to={`/users/${item.User.id}`}
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <Image
               src={item.User.avatar || defaultAvatar}
               alt="avatar"
@@ -404,7 +451,18 @@ const ItemsWrapper = ({ item }) => {
                 zIndex: "2",
               }}
             />
-            <small>{item.User.name}</small>
+            <p
+              style={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                maxWidth: "75%",
+                margin: "5px 0",
+                padding: "0",
+              }}
+            >
+              {item.User.name}
+            </p>
           </Link>
         )}
         <Card.Text>
