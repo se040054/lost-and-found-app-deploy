@@ -216,14 +216,19 @@ const BrandTextBaseStyled = styled(Navbar.Brand)`
   cursor: pointer;
   @media screen and (max-width: 1400px) {
     font-size: 1rem;
-    margin:0;
-    padding:0;
-}
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 const LogoTextStyled = styled(BrandTextBaseStyled)`
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
+  @media screen and (max-width: 1400px) {
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 const Logo = styled(WebLogo)`
