@@ -128,7 +128,7 @@ export default function MerchantInfoPage() {
 const InformationContainer = ({ merchant, currentMemberId, handleDelete }) => {
   return (
     <InformationContainerStyled>
-      <Container fluid className="my-2 my-0 p-0 w-100 h-100">
+     
         <Image
           src={merchant?.logo || defaultMerchantLogo}
           thumbnail
@@ -140,8 +140,8 @@ const InformationContainer = ({ merchant, currentMemberId, handleDelete }) => {
             height: "240px",
           }}
         />
-      </Container>
-      <Container fluid className="my-2 my-0 p-0">
+     
+      <Container fluid className="my-2 my-0 p-0 ">
         <InfoRow>
           <h2>{merchant?.name}</h2>
         </InfoRow>
@@ -163,12 +163,14 @@ const InformationContainer = ({ merchant, currentMemberId, handleDelete }) => {
         </InfoRow>
       </Container>
       {merchant.userId === currentMemberId && (
-        <Container className="m-u p-0 d-flex justify-content-between">
+        <Container className="p-0 d-flex flex-xl-row flex-column justify-content-between align-items-center">
           <Link to={`/merchants/${merchant.id}/edit`}>
-            <Button className="btn btn-success">編輯商家資料</Button>
+            <Button className="btn btn-success mb-2">編輯商家資料</Button>
           </Link>
-
-          <Button className="btn btn-danger" onClick={(e) => handleDelete?.()}>
+          <Button
+            className="btn btn-danger mb-2"
+            onClick={(e) => handleDelete?.()}
+          >
             刪除商家
           </Button>
         </Container>
@@ -194,7 +196,7 @@ const ItemsContainer = ({ items }) => {
   return (
     <CardGroup>
       {items?.length > 0 && (
-        <Row xs={1} sm={2} md={3} lg={4} xl={4} className="g-2 w-75">
+        <Row xs={1} sm={2} md={2} lg={3} xl={3} xxl={4} className="g-2 w-100">
           {items.map((item) => {
             return (
               <Col key={item.id}>

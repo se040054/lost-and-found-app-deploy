@@ -101,19 +101,17 @@ export default function ProfilePage() {
 const InformationContainer = ({ profile, currentMemberId }) => {
   return (
     <InformationContainerStyled>
-      <Container fluid className="my-2 my-0 p-0 w-100 h-100">
-        <Image
-          src={profile?.avatar || defaultAvatar}
-          roundedCircle
-          // 注意這裡如果用react 屬性設置寬高會導致大小不一
-          style={{
-            border: "1px solid gray",
-            objectFit: "contain",
-            width: "240px",
-            height: "240px",
-          }}
-        />
-      </Container>
+      <Image
+        src={profile?.avatar || defaultAvatar}
+        roundedCircle
+        // 注意這裡如果用react 屬性設置寬高會導致大小不一
+        style={{
+          border: "1px solid gray",
+          objectFit: "contain",
+          width: "240px",
+          height: "240px",
+        }}
+      />
       <Container fluid className="my-2 my-0 p-0">
         <InfoRow>
           <h2>{profile.name}</h2>
@@ -169,9 +167,9 @@ const PropertiesContainer = ({ profile, showFavorite, favorites }) => {
 
 const ItemsContainer = ({ items }) => {
   return (
-    <CardGroup>
+    <CardGroup className="w-100">
       {items?.length > 0 && (
-        <Row xs={1} sm={2} md={3} lg={4} xl={4} className="g-2 w-100">
+        <Row xs={1} sm={2} md={2} lg={3} xl={3} xxl={4} className="g-2 w-100">
           {items.map((item) => {
             return (
               <Col key={item.id}>
@@ -244,28 +242,22 @@ const MerchantsContainer = ({ merchants }) => {
 const MerchantWrapper = ({ merchant }) => {
   return (
     <Link to={`/merchants/${merchant.id}`}>
-      <Card fluid className="mb-3">
-        <Row fluid>
-          <Col md={3}>
-            <Card.Img
-              src={merchant.logo || defaultMerchantLogo}
-              alt="..."
-              style={{
-                width: "260px",
-                height: "260px",
-                objectFit: "contain",
-              }}
-            />
-          </Col>
-          <Col md={9}>
-            <Card.Body>
-              <Card.Title>{merchant.name}</Card.Title>
-              <Card.Text>
-                <small className="text-muted">{merchant.address}</small>
-              </Card.Text>
-            </Card.Body>
-          </Col>
-        </Row>
+      <Card fluid className="mb-3 flex-md-row">
+        <Card.Img
+          src={merchant.logo || defaultMerchantLogo}
+          alt="..."
+          style={{
+            width: "auto",
+            height: "260px",
+            objectFit: "contain",
+          }}
+        />
+        <Card.Body>
+          <Card.Title>{merchant.name}</Card.Title>
+          <Card.Text>
+            <small className="text-muted">{merchant.address}</small>
+          </Card.Text>
+        </Card.Body>
       </Card>
     </Link>
   );

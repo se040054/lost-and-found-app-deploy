@@ -6,10 +6,11 @@ export const MainContainerStyled = styled.div`
   align-items: start;
   justify-content: center;
   margin: 120px auto;
-  width: 80%;
-  @media screen and (max-width: 700px) {
+  width: 90%;
+  @media screen and (max-width: 1200px) {
     flex-direction: column;
-    width: 90%;
+    align-items: center;
+    width: 100%;
   }
 `;
 
@@ -18,9 +19,10 @@ export const InformationContainerStyled = styled.div`
   flex-direction: column;
   width: 25%;
   align-items: start;
-  @media screen and (max-width: 700px) {
-    width: 100%;
-    margin-bottom: 20px;
+  @media screen and (max-width: 1200px) {
+    align-items: center;
+    width: 50%;
+    margin-bottom: 30px;
   }
 `;
 
@@ -29,4 +31,8 @@ export const InfoRow = styled.div`
   align-items: center;
   width: 100%;
   margin: 15px 0;
+  @media screen and (max-width: 1200px) {
+    justify-content: center;    
+    text-align:center;
+  }
 `;
